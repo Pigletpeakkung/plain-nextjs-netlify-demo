@@ -312,4 +312,114 @@ const EmpressBlogSection = () => {
                     <motion.div
                       initial={{ width: 0 }}
                       animate={hoveredPost === post.id ? { width: "100%" } : { width: 0 }}
-                      className="h-1 bg-gradient-to-r from-gold-400 to-
+                                         className="h-1 bg-gradient-to-r from-gold-400 to-rose-gold-400 mt-4 rounded-full transition-all duration-500"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* Blog Categories & Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+        >
+          {[
+            { category: "Industry Analysis", count: "25+", icon: "📊", color: "from-blue-500 to-blue-600" },
+            { category: "Rising Stars", count: "40+", icon: "⭐", color: "from-yellow-500 to-orange-500" },
+            { category: "Wellness", count: "15+", icon: "💆‍♀️", color: "from-green-500 to-emerald-500" },
+            { category: "Behind Scenes", count: "30+", icon: "🎬", color: "from-purple-500 to-pink-500" }
+          ].map((category, index) => (
+            <motion.div
+              key={category.category}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className={`bg-gradient-to-r ${category.color} p-6 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer`}
+            >
+              <div className="text-3xl mb-2">{category.icon}</div>
+              <div className="text-2xl font-bold mb-1">{category.count}</div>
+              <div className="text-white/90 text-sm">{category.category}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Newsletter Signup */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          className="bg-gradient-to-r from-gold-400/10 to-rose-gold-400/10 backdrop-blur-sm rounded-3xl p-8 border border-gold-400/20 mb-16"
+        >
+          <div className="text-center">
+            <motion.div
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="text-4xl mb-4"
+            >
+              💌
+            </motion.div>
+            <h3 className="text-3xl font-bold text-white mb-4">
+              Stay Updated with Empress Chronicles
+            </h3>
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              Get exclusive insights, early access to articles, and behind-the-scenes content delivered to your inbox weekly.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-400"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-gradient-to-r from-gold-400 to-gold-600 text-black font-bold rounded-full hover:shadow-xl transition-all duration-300"
+              >
+                Subscribe ✨
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* View All Posts Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center"
+        >
+          <Link href="/blog">
+            <motion.button
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(212, 175, 55, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="group px-12 py-5 bg-gradient-to-r from-gold-400 to-rose-gold-400 text-black rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <span className="flex items-center">
+                Explore All Articles
+                <motion.svg 
+                  className="w-5 h-5 ml-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </motion.svg>
+              </span>
+            </motion.button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default EmpressBlogSection
