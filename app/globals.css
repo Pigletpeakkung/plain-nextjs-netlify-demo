@@ -2,20 +2,365 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom CSS Variables for Pageant Empress */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Empress Colors */
+  --empress-gold: #D4AF37;
+  --empress-rose-gold: #E8B4B8;
+  --empress-platinum: #E5E4E2;
+  --empress-diamond: #B9F2FF;
+  
+  /* Background Colors */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a0a2e;
+  --bg-accent: rgba(212, 175, 55, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #D4AF37, #E8B4B8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #FFD700, #FF69B4);
+}
+
+/* Custom Animations */
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1) rotate(180deg); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(5deg); 
+  }
+}
+
+@keyframes shimmer {
+  0% { 
+    background-position: -200% center; 
+  }
+  100% { 
+    background-position: 200% center; 
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes crown-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0) rotate(0deg);
+  }
+  40%, 43% {
+    transform: translate3d(0, -15px, 0) rotate(5deg);
+  }
+  70% {
+    transform: translate3d(0, -7px, 0) rotate(-2deg);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0) rotate(1deg);
+  }
+}
+
+/* Utility Classes */
+.sparkle-animation {
+  animation: sparkle 2s infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.shimmer-animation {
+  background: linear-gradient(90deg, #D4AF37, #E8B4B8, #B9F2FF, #D4AF37);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-animation {
+  animation: glow-pulse 2s ease-in-out infinite alternate;
+}
+
+.crown-bounce {
+  animation: crown-bounce 2s infinite;
+}
+
+/* Gradient Text Effects */
+.gradient-gold {
+  background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-empress {
+  background: linear-gradient(135deg, #D4AF37 0%, #E8B4B8 50%, #B9F2FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-royal {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass Effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button Styles */
+.btn-empress {
+  @apply px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply px-8 py-4 border-2 border-white/30 backdrop-blur-sm rounded-full text-white font-semibold hover:bg-white/10 transition-all duration-300;
+}
+
+.btn-social {
+  @apply w-12 h-12 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 hover:shadow-lg;
+}
+
+/* Card Effects */
+.card-hover {
+  @apply transform transition-all duration-500 hover:scale-105 hover:shadow-2xl;
+}
+
+.card-glass {
+  @apply bg-gradient-to-b from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-2xl;
+}
+
+/* Text Utilities */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Loading Animations */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots:after {
+  content: '⋯';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);
+  }
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);
+  }
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);
+  }
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .text-hero {
+    @apply text-4xl;
+  }
+  
+  .text-section {
+    @apply text-3xl;
+  }
+}
+
+@media (min-width: 641px) {
+  .text-hero {
+    @apply text-6xl md:text-8xl;
+  }
+  
+  .text-section {
+    @apply text-5xl;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .mobile-padding {
+    @apply px-4 py-8;
+  }
+  
+  .mobile-text {
+    @apply text-base leading-relaxed;
+  }
+  
+  .mobile-button {
+    @apply w-full py-4 text-lg;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Styles */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* Line Clamp Utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom Checkbox and Radio Styles */
+.custom-checkbox {
+  @apply w-5 h-5 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 focus:ring-2;
+}
+
+/* Selection Styles */
+::selection {
+  background-color: rgba(212, 175, 55, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(212, 175, 55, 0.3);
+  color: white;
+}
+
+/* Image Optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Video Responsiveness */
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
