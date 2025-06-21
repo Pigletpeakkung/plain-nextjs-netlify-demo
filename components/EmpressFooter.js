@@ -134,5 +134,14 @@ const EmpressFooter = () => {
             <p className="text-gray-400">
               © 2025 <span className="text-gold-400 font-semibold">Pageant Empress</span>. All rights reserved.
             </p>
-            <p className="text-gray-400">
+                       <p className="text-gray-400">
               Copyright © <span className="text-gold-400 font-semibold">Thanattsitt S.</span> | Developed with 💛
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </footer>
+  )
+}
+
+export default EmpressFooter
