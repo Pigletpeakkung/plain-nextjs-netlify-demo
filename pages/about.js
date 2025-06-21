@@ -76,7 +76,46 @@ export default function About() {
                 title: "Our Vision",
                 description: "To be the leading digital platform where pageant dreams are nurtured and crown moments are celebrated worldwide."
               },
-              {
+                     {
                 icon: "👑",
                 title: "Our Values",
-                description: "Excellence
+                description: "Excellence, diversity, empowerment, and authentic storytelling in every piece of content we create."
+              }
+            ].map((item, index) => (
+              <div key={index} className="text-center p-8 bg-gradient-to-b from-white/5 to-white/10 backdrop-blur-sm rounded-2xl border border-white/10">
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                <p className="text-gray-300">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Development Credits */}
+          <div className="bg-gradient-to-r from-yellow-400/10 to-pink-400/10 backdrop-blur-sm rounded-3xl p-8 border border-yellow-400/20 text-center">
+            <div className="text-5xl mb-4">💻</div>
+            <h3 className="text-3xl font-bold text-white mb-4">Website Development</h3>
+            <p className="text-xl text-gray-300 mb-6">
+              This digital empire was crafted with precision and passion by <strong className="text-yellow-400">Thanattsitt S. (ThannxAI)</strong>
+            </p>
+            <div className="space-y-2 text-gray-300">
+              <p>✨ 2025 cutting-edge design & animations</p>
+              <p>🚀 Optimized for performance & SEO</p>
+              <p>📱 Mobile-first responsive design</p>
+            </div>
+            <div className="mt-6">
+              <a
+                href="mailto:thanattsitt.info@yahoo.co.uk"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black rounded-full font-semibold hover:shadow-xl transition-all duration-300"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Contact Developer
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  )
+}
