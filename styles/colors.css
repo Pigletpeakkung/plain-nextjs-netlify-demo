@@ -1,0 +1,25 @@
+/* styles/colors.css - Ultra-Premium 2025 Palette */
+:root {
+  /* Primary Empress Colors */
+  --empress-gold: #D4AF37;
+  --empress-rose-gold: #E8B4B8;
+  --empress-platinum: #E5E4E2;
+  --empress-diamond: #B9F2FF;
+  
+  /* 2025 Gradient Colors */
+  --gradient-empress: linear-gradient(135deg, #D4AF37 0%, #E8B4B8 50%, #B9F2FF 100%);
+  --gradient-royal: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-sunset: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%);
+  --gradient-aurora: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  
+  /* Glassmorphism Colors */
+  --glass-white: rgba(255, 255, 255, 0.1);
+  --glass-black: rgba(0, 0, 0, 0.1);
+  --glass-gold: rgba(212, 175, 55, 0.2);
+  
+  /* Neumorphism Colors */
+  --neuro-light: #f0f0f3;
+  --neuro-dark: #1a1a2e;
+  --neuro-shadow-light: rgba(255, 255, 255, 0.7);
+  --neuro-shadow-dark: rgba(0, 0, 0, 0.2);
+}
